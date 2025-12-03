@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Filamentos{% endblock %}
+
+{% block extra-css %}
+<link rel="stylesheet" href="/css/filamentos.css">
+{% endblock %}
+
+{% block content %}
+<h1>Filamentos</h1>
+
+<div id="filamentos-container">
+    <table id="tabela-filamentos">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Marca</th>
+                <th>Tipo</th>
+                <th>Cor</th>
+                <th>Peso (g)</th>
+                <th>Preço de Compra</th>
+            </tr>
+        </thead>
+        <tbody id="corpo-tabela-filamentos">
+            <!-- Preenchido via JS futuramente -->
+        </tbody>
+    </table>
+</div>
+{% endblock %}

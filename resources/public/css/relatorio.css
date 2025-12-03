@@ -1,0 +1,16 @@
+#relatorio-container {
+    padding: 20px;
+}
+
+.btn {
+    background: #0077D1;
+    color: white;
+    padding: 10px;
+    border: none;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+#resultado-relatorio {
+    margin-top: 20px;
+}

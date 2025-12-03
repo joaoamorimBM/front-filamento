@@ -1,0 +1,23 @@
+#filamentos-container {
+    padding: 20px;
+}
+
+#tabela-filamentos {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#tabela-filamentos th {
+    background: #e8f4ff;
+    padding: 10px;
+    text-align: left;
+}
+
+#tabela-filamentos td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+#tabela-filamentos tr:hover {
+    background: #f5faff;
+}

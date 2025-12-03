@@ -1,0 +1,18 @@
+#impressoes-container {
+    padding: 20px;
+}
+
+#tabela-impressoes {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#tabela-impressoes th {
+    background: #eaf3ff;
+    padding: 10px;
+}
+
+#tabela-impressoes td {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}

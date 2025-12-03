@@ -1,0 +1,51 @@
+/* Importando Science Gothic */
+@import url('https://fonts.googleapis.com/css2?family=Science+Gothic:wght@100..900&display=swap');
+
+/* Aplicando globalmente */
+body {
+    font-family: "Science Gothic", sans-serif !important;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+/* ------------- NAVBAR (Dashboard Moderno) ------------- */
+
+.navbar {
+    background: #0077D1; /* Azul principal da logo */
+    padding: 7px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.logo {
+    max-height: 110px;  /* ou 70px, escolha */
+    width: auto;
+}
+
+
+.nav-left .logo img{
+    max-height: 50px;
+    width: 2px;
+}
+
+.nav-right {
+    display: flex;
+    gap: 26px;
+}
+
+.nav-right a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 18px;
+    transition: 0.2s ease;
+}
+
+.nav-right a:hover {
+    color: #cde9ff;
+    transform: translateY(-1px);
+}

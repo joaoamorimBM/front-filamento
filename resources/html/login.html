@@ -1,0 +1,30 @@
+{% extends "base_no_nav.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block extra-css %}
+<link rel="stylesheet" href="/css/login.css">
+{% endblock %}
+
+{% block content %}
+
+<div class="login-wrapper">
+    <div class="login-box">
+
+        <h1>Entrar com sua conta Bambu Lab</h1>
+
+        <label>Email</label>
+        <input id="email" type="email" placeholder="seu@email.com">
+
+        <label>Senha</label>
+        <input id="password" type="password" placeholder="********">
+
+        <button id="btn-login">Entrar</button>
+
+        <div id="login-error" class="error-msg"></div>
+    </div>
+</div>
+
+<script src="/js/auth.js"></script>
+
+{% endblock %}

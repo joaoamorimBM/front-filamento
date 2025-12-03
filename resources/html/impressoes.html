@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Impressões{% endblock %}
+
+{% block extra-css %}
+<link rel="stylesheet" href="/css/impressoes.css">
+{% endblock %}
+
+{% block content %}
+<h1>Impressões</h1>
+
+<div id="impressoes-container">
+    <table id="tabela-impressoes">
+        <thead>
+            <tr>
+                <th>Arquivo</th>
+                <th>Filamento</th>
+                <th>Peso Usado (g)</th>
+                <th>Tempo (min)</th>
+                <th>Custo</th>
+                <th>Preço de Venda</th>
+            </tr>
+        </thead>
+        <tbody id="corpo-tabela-impressoes">
+        </tbody>
+    </table>
+</div>
+{% endblock %}

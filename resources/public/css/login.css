@@ -1,0 +1,74 @@
+/* Centralizar perfeitamente */
+.login-wrapper {
+    height: calc(100vh - 0px); /* tela inteira */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+/* Caixa alinhada e simétrica */
+.login-box {
+    width: 100%;
+    max-width: 420px;
+    background: white;
+    padding: 40px 32px;  /* padding horizontal igual */
+    border-radius: 16px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.15);
+    box-sizing: border-box; /* impede deformações */
+}
+
+
+/* TÍTULO */
+.login-box h1 {
+    margin-bottom: 25px;
+    font-size: 1.6rem; /* maior */
+    text-align: center;
+    font-weight: 700;
+    color: #004c8f;
+}
+
+/* LABELS */
+.login-box label {
+    display: block;
+    margin-top: 16px;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 14px 14px; /* padding igual nos 2 lados */
+    margin-top: 6px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 1.1rem;
+    box-sizing: border-box;
+}
+
+#btn-login {
+    width: 100%;
+    padding: 16px;
+    margin-top: 22px;
+    background: #0077D1;
+    color: white;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    transition: 0.2s;
+}
+
+#btn-login:hover {
+    background: #005fa8;
+    transform: translateY(-2px);
+}
+
+/* MENSAGEM DE ERRO */
+#login-error {
+    margin-top: 12px;
+    color: red;
+    text-align: center;
+    font-size: 1rem;
+}

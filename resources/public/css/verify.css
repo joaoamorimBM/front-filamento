@@ -1,0 +1,58 @@
+.verify-wrapper {
+    margin: 40px auto;
+    max-width: 360px;
+    display: flex;
+    justify-content: center;
+}
+
+.verify-box {
+    width: 100%;
+    background: white;
+    padding: 28px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+.verify-box h1 {
+    font-size: 1.3rem;
+    margin-bottom: 18px;
+}
+
+.verify-box label {
+    display: block;
+    margin-top: 12px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.verify-box input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+#btn-verify {
+    width: 100%;
+    margin-top: 18px;
+    padding: 12px;
+    background: #0077D1;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+#btn-verify:hover {
+    background: #005fa8;
+}
+
+.error-msg {
+    margin-top: 10px;
+    color: red;
+    font-size: 0.9rem;
+}

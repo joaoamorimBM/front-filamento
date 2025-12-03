@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Relatórios{% endblock %}
+
+{% block extra-css %}
+<link rel="stylesheet" href="/css/relatorios.css">
+{% endblock %}
+
+{% block content %}
+<h1>Relatórios</h1>
+
+<div id="relatorio-container">
+    <button class="btn">Relatório Mensal</button>
+    <button class="btn">Top 10 Impressões Lucrativas</button>
+    <button class="btn">Estatísticas Gerais</button>
+
+    <div id="resultado-relatorio"></div>
+</div>
+{% endblock %}

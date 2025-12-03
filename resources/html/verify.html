@@ -1,0 +1,28 @@
+{% extends "base_no_nav.html" %}
+
+{% block title %}Verificação{% endblock %}
+
+{% block extra-css %}
+<link rel="stylesheet" href="/css/verify.css">
+{% endblock %}
+
+{% block content %}
+
+<div class="verify-wrapper">
+    <div class="verify-box">
+
+        <h1>Digite o código enviado ao seu email</h1>
+
+        <label for="code">Código de verificação</label>
+        <input id="code" type="text" placeholder="000000" maxlength="6" autocomplete="off">
+
+        <button id="btn-verify">Confirmar</button>
+
+        <div id="verify-error" class="error-msg"></div>
+
+    </div>
+</div>
+
+<script src="/js/auth.js"></script>
+
+{% endblock %}
