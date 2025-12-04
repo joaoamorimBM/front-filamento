@@ -1,28 +1,143 @@
 {% extends "base.html" %}
-{% block title %}Filamentos{% endblock %}
+{% block title %}Meus Filamentos{% endblock %}
 
 {% block extra-css %}
 <link rel="stylesheet" href="/css/filamentos.css">
 {% endblock %}
 
 {% block content %}
-<h1>Filamentos</h1>
 
-<div id="filamentos-container">
-    <table id="tabela-filamentos">
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Marca</th>
-                <th>Tipo</th>
-                <th>Cor</th>
-                <th>Peso (g)</th>
-                <th>Preço de Compra</th>
-            </tr>
-        </thead>
-        <tbody id="corpo-tabela-filamentos">
-            <!-- Preenchido via JS futuramente -->
-        </tbody>
-    </table>
+<div class="filamentos-page-wrapper">
+    
+    <div class="filamentos-container">
+        <div class="page-header">
+            <div class="header-text">
+                <h1>📦 Estoque de Filamentos</h1>
+                <p class="subtitle">Gerencie suas bobinas e controle os custos.</p>
+            </div>
+            <button id="btn-novo" class="btn-modern">
+                <span class="plus-icon">+</span> Adicionar Filamento
+            </button>
+        </div>
+
+        <div class="table-card">
+            <table id="tabela-filamentos">
+                <thead>
+                    <tr>
+                        <th style="width: 60px; text-align: center;">Cor</th>
+                        <th>Nome</th>
+                        <th>Marca</th>
+                        <th>Tipo</th>
+                        <th>Estoque</th>
+                        <th>Preço</th>
+                        <th style="text-align: right;">Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="lista-filamentos">
+                    </tbody>
+            </table>
+            
+            <div id="loading" class="state-msg">
+                <div class="spinner"></div> Carregando...
+            </div>
+            <div id="empty-msg" class="state-msg" style="display: none;">
+                <p>Nenhum filamento cadastrado.</p>
+            </div>
+        </div>
+    </div>
+
+</div> <div id="modal-form" class="modal-overlay" style="display: none;">
+    <div class="modal-content modal-lg">
+        <div class="modal-header">
+            <h2>Novo Filamento</h2>
+            <span class="close-modal">&times;</span>
+        </div>
+        
+        <form id="form-filamento">
+            <div class="modal-body">
+                
+                <div class="form-section-title">Informações Básicas</div>
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label>Nome de Exibição</label>
+                        <input type="text" id="f-nome" placeholder="Ex: PLA Matte Navy Blue" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Marca</label>
+                        <input type="text" id="f-marca" placeholder="Ex: Bambu Lab" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Material</label>
+                        <select id="f-tipo" required>
+                            <option value="PLA">PLA</option>
+                            <option value="PLA_SILK">PLA Silk</option>
+                            <option value="PETG">PETG</option>
+                            <option value="ABS">ABS</option>
+                            <option value="ASA">ASA</option>
+                            <option value="TPU">TPU</option>
+                            <option value="PA">Nylon (PA)</option>
+                            <option value="PC">Policarbonato</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-section-title">Cor do Material</div>
+                <div class="color-picker-section">
+                    <input type="hidden" id="selected-color-hex" value="#000000">
+                    
+                    <div id="color-trigger" class="color-preview-large" style="background-color: #000000;">
+                        <span class="edit-icon">✎</span>
+                    </div>
+                    
+                    <div class="color-info">
+                        <span id="color-label-text">Preto (#000000)</span>
+                        <small>Clique na bolinha para alterar</small>
+                    </div>
+
+                    <div id="color-palette-popover" class="palette-popover" style="display: none;">
+                        <div class="palette-grid">
+                            <div class="swatch" style="background: #000000;" data-color="#000000" title="Preto"></div>
+                            <div class="swatch" style="background: #FFFFFF; border: 1px solid #ddd;" data-color="#FFFFFF" title="Branco"></div>
+                            <div class="swatch" style="background: #808080;" data-color="#808080" title="Cinza"></div>
+                            <div class="swatch" style="background: #FF0000;" data-color="#FF0000" title="Vermelho"></div>
+                            <div class="swatch" style="background: #0000FF;" data-color="#0000FF" title="Azul"></div>
+                            <div class="swatch" style="background: #00FF00;" data-color="#00FF00" title="Verde"></div>
+                            <div class="swatch" style="background: #FFFF00;" data-color="#FFFF00" title="Amarelo"></div>
+                            <div class="swatch" style="background: #FFA500;" data-color="#FFA500" title="Laranja"></div>
+                            <div class="swatch" style="background: #800080;" data-color="#800080" title="Roxo"></div>
+                            <div class="swatch" style="background: #FFC0CB;" data-color="#FFC0CB" title="Rosa"></div>
+                            <div class="swatch" style="background: #A52A2A;" data-color="#A52A2A" title="Marrom"></div>
+                            <div class="swatch" style="background: #00FFFF;" data-color="#00FFFF" title="Ciano"></div>
+                            
+                            <div class="swatch custom-swatch" id="btn-custom-color" title="Roda de Cores">
+                                🌈
+                            </div>
+                        </div>
+                        <input type="color" id="native-color-picker">
+                    </div>
+                </div>
+
+                <div class="form-section-title">Custos & Peso</div>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Peso Inicial (g)</label>
+                        <input type="number" id="f-peso" value="1000" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Preço Pago (R$)</label>
+                        <input type="number" id="f-preco" step="0.01" placeholder="0.00" required>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn-cancel close-modal-btn">Cancelar</button>
+                <button type="submit" class="btn-save">Salvar Filamento</button>
+            </div>
+        </form>
+    </div>
 </div>
+
+<script src="/js/filamentos.js"></script>
 {% endblock %}
