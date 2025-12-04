@@ -1,0 +1,74 @@
+.config-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: 'Inter', sans-serif;
+}
+
+.config-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    padding: 30px;
+}
+
+.config-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.config-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.config-item:hover {
+    background: #f9f9f9;
+}
+
+.config-label {
+    font-weight: 600;
+    color: #2c3e50;
+    flex: 1;
+}
+
+.config-label small {
+    display: block;
+    color: #7f8c8d;
+    font-weight: 400;
+    margin-top: 4px;
+}
+
+.config-input-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.config-input-group input {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    width: 120px;
+    text-align: right;
+}
+
+.btn-save-item {
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.btn-save-item:hover { background: #219150; }
+
+.state-msg { text-align: center; color: #666; padding: 20px; }

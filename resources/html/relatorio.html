@@ -2,17 +2,51 @@
 {% block title %}Relatórios{% endblock %}
 
 {% block extra-css %}
-<link rel="stylesheet" href="/css/relatorios.css">
+<link rel="stylesheet" href="/css/relatorio.css">
 {% endblock %}
 
 {% block content %}
-<h1>Relatórios</h1>
+<div class="relatorio-container">
+    <div class="page-header">
+        <h1>📊 Relatórios de Performance</h1>
+    </div>
 
-<div id="relatorio-container">
-    <button class="btn">Relatório Mensal</button>
-    <button class="btn">Top 10 Impressões Lucrativas</button>
-    <button class="btn">Estatísticas Gerais</button>
+    <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('estatisticas')">Geral</button>
+        <button class="tab-btn" onclick="switchTab('mensal')">Mensal</button>
+        <button class="tab-btn" onclick="switchTab('top10')">Top Lucrativas</button>
+    </div>
 
-    <div id="resultado-relatorio"></div>
+    <div id="view-estatisticas" class="tab-content">
+        <div class="stats-grid" id="stats-cards">
+            <p>Carregando...</p>
+        </div>
+    </div>
+
+    <div id="view-mensal" class="tab-content" style="display:none;">
+        <div class="filter-bar">
+            <input type="number" id="mes-input" placeholder="Mês (1-12)" min="1" max="12">
+            <input type="number" id="ano-input" placeholder="Ano" min="2024">
+            <button class="btn-action" onclick="carregarMensal()">Filtrar</button>
+        </div>
+        <div id="mensal-result" class="report-result"></div>
+    </div>
+
+    <div id="view-top10" class="tab-content" style="display:none;">
+        <table class="report-table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Data</th>
+                    <th>Preço Venda</th>
+                    <th>Lucro Líquido</th>
+                </tr>
+            </thead>
+            <tbody id="top10-body"></tbody>
+        </table>
+    </div>
+
 </div>
+
+<script src="/js/relatorio.js"></script>
 {% endblock %}

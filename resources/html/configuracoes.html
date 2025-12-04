@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Configurações{% endblock %}
+
+{% block extra-css %}
+<link rel="stylesheet" href="/css/configuracoes.css">
+{% endblock %}
+
+{% block content %}
+<div class="config-container">
+    <div class="page-header">
+        <h1>⚙️ Configurações do Sistema</h1>
+        <p class="subtitle">Defina os parâmetros para o cálculo de custos.</p>
+    </div>
+
+    <div class="config-card">
+        <div id="loading-config" class="state-msg">
+            <div class="spinner"></div> Carregando...
+        </div>
+        
+        <form id="config-form" style="display:none;">
+            <div class="config-grid" id="config-list">
+                </div>
+        </form>
+    </div>
+</div>
+
+<script src="/js/configuracoes.js"></script>
+{% endblock %}
