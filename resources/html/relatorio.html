@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Relatórios{% endblock %}
+{% block title %}Relatórios Financeiros{% endblock %}
 
 {% block extra-css %}
 <link rel="stylesheet" href="/css/relatorio.css">
@@ -7,46 +7,62 @@
 
 {% block content %}
 <div class="relatorio-container">
+    
     <div class="page-header">
         <h1>📊 Relatórios de Performance</h1>
+        <p class="subtitle">Acompanhe seus ganhos e gastos em tempo real.</p>
     </div>
 
     <div class="tabs">
-        <button class="tab-btn active" onclick="switchTab('estatisticas')">Geral</button>
-        <button class="tab-btn" onclick="switchTab('mensal')">Mensal</button>
-        <button class="tab-btn" onclick="switchTab('top10')">Top Lucrativas</button>
+        <button class="tab-btn active" onclick="openTab('semanal', event)">Esta Semana</button>
+        <button class="tab-btn" onclick="openTab('mensal', event)">Este Mês</button>
+        <button class="tab-btn" onclick="openTab('anual', event)">Este Ano</button>
     </div>
 
-    <div id="view-estatisticas" class="tab-content">
-        <div class="stats-grid" id="stats-cards">
-            <p>Carregando...</p>
+    <div id="report-output" class="report-content">
+        
+        <h2 id="period-title" class="period-title">Carregando...</h2>
+        
+        <div class="stats-grid" id="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Faturamento</div>
+                <div class="stat-val" id="val-faturamento">R$ --,--</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Custos Operacionais</div>
+                <div class="stat-val" id="val-custos" style="color: #c0392b;">R$ --,--</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Lucro Líquido</div>
+                <div class="stat-val" id="val-lucro">R$ --,--</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Impressões</div>
+                <div class="stat-val" id="val-qtd">--</div>
+            </div>
         </div>
-    </div>
 
-    <div id="view-mensal" class="tab-content" style="display:none;">
-        <div class="filter-bar">
-            <input type="number" id="mes-input" placeholder="Mês (1-12)" min="1" max="12">
-            <input type="number" id="ano-input" placeholder="Ano" min="2024">
-            <button class="btn-action" onclick="carregarMensal()">Filtrar</button>
+        <div class="top10-section">
+            <h3>🏆 Top 10 Impressões Mais Lucrativas</h3>
+            <div class="table-responsive">
+                <table class="report-table">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Data</th>
+                            <th>Venda</th>
+                            <th>Lucro</th>
+                        </tr>
+                    </thead>
+                    <tbody id="top10-body">
+                        </tbody>
+                </table>
+            </div>
         </div>
-        <div id="mensal-result" class="report-result"></div>
-    </div>
 
-    <div id="view-top10" class="tab-content" style="display:none;">
-        <table class="report-table">
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Data</th>
-                    <th>Preço Venda</th>
-                    <th>Lucro Líquido</th>
-                </tr>
-            </thead>
-            <tbody id="top10-body"></tbody>
-        </table>
     </div>
 
 </div>
 
-<script src="/js/relatorio.js"></script>
+<script src="/js/relatorio.js?v=3"></script>
 {% endblock %}

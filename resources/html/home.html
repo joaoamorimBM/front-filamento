@@ -4,6 +4,39 @@
 
 {% block extra-css %}
 <link rel="stylesheet" href="/css/home.css">
+<style>
+    /* Estilos inline do Saldo para garantir que carregue */
+    .balance-card {
+        background: white;
+        padding: 15px 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-right: auto; /* Empurra o resto para direita */
+        margin-left: 20px;
+    }
+    .balance-info span { font-size: 0.8rem; color: #7f8c8d; text-transform: uppercase; }
+    .balance-info h2 { margin: 0; font-size: 1.8rem; color: #2c3e50; }
+    
+    .btn-sell {
+        background: #2980b9;
+        color: white;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 0.8rem;
+        transition: background 0.2s;
+        margin-left: 10px;
+    }
+    .btn-sell:hover { background: #3498db; }
+    
+    .btn-icon { background: none; border: none; cursor: pointer; font-size: 1.2rem; opacity: 0.5; }
+    .btn-icon:hover { opacity: 1; }
+</style>
 {% endblock %}
 
 {% block content %}
@@ -11,7 +44,15 @@
 <div class="home-container">
 
     <div class="home-header">
-        <h1 class="home-title">Últimas Impressões</h1>
+        <h1 class="home-title">Dashboard</h1>
+        
+        <div class="balance-card">
+            <div class="balance-info">
+                <span>Saldo Atual</span>
+                <h2 id="balance-display">R$ --,--</h2>
+            </div>
+            <button id="btn-set-balance" class="btn-icon" title="Ajustar Saldo Inicial">⚙️</button>
+        </div>
 
         <button id="btn-sync" class="sync-btn">
             🔄 Sincronizar Impressões
@@ -50,16 +91,20 @@
                 </div>
 
                 <div class="modal-section highlight-section">
-                    <h3>🏷️ Sugestão de Venda</h3>
-                    <div class="price-box">
-                        <small>Preço Consumidor</small>
-                        <span id="modal-price-consumer" class="big-price"></span>
+                    <h3>🏷️ Preço de Venda</h3>
+                    
+                    <div class="edit-price-container">
+                        <label>Preço Final (R$):</label>
+                        <div class="input-with-button">
+                            <input type="number" id="modal-price-input" step="0.01">
+                            <button id="btn-save-price" class="btn-save-mini">💾 Salvar</button>
+                        </div>
+                        <small>Sugerido: <span id="modal-suggested">R$ 0,00</span></small>
                     </div>
-                    <div class="price-box secondary">
-                        <small>Preço Lojista</small>
-                        <span id="modal-price-reseller"></span>
+
+                    <div class="profit-box">
+                        <p>Margem Líquida: <span id="modal-margin">R$ 0,00</span></p>
                     </div>
-                    <p class="profit-margin">Margem Líquida: <span id="modal-margin"></span></p>
                 </div>
             </div>
         </div>
@@ -67,6 +112,4 @@
 
 </div>
 
-<script src="/js/home.js"></script>
-
-{% endblock %}
+<script src="/js/home.js?v=4"></script> {% endblock %}

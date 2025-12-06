@@ -13,6 +13,49 @@
 
 .subtitle { color: #666; font-size: 0.95rem; margin-top: 5px; }
 
+/* === CABEÇALHO E SALDO === */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* Alinha botão com o fundo do texto */
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.balance-card {
+    background: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border-left: 5px solid #27ae60; /* Faixa verde lateral */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 150px;
+}
+
+.balance-label {
+    font-size: 0.75rem;
+    color: #7f8c8d;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.balance-value {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
 /* === BOTÃO MODERNO === */
 .btn-modern {
     background: linear-gradient(135deg, #0061ff 0%, #60efff 100%);

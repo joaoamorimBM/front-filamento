@@ -20,9 +20,16 @@
         <form id="config-form" style="display:none;">
             <div class="config-grid" id="config-list">
                 </div>
+
+            <div style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px;">
+                <button type="button" id="btn-recalc" class="btn-recalc">
+                    ♻️ Aplicar configurações a todo o histórico
+                </button>
+                <p class="hint-text">Isso vai atualizar os preços de todas as impressões já salvas.</p>
+            </div>
         </form>
     </div>
 </div>
 
-<script src="/js/configuracoes.js"></script>
+<script src="/js/configuracoes.js?v=3"></script>
 {% endblock %}

@@ -1,74 +1,60 @@
 .relatorio-container {
-    max-width: 1000px;
-    margin: 40px auto;
-    padding: 0 20px;
-    font-family: 'Inter', sans-serif;
+    max-width: 1000px; margin: 40px auto; padding: 0 20px;
+    font-family: 'Inter', system-ui, sans-serif;
 }
+.subtitle { color: #666; margin-top: 5px; font-size: 0.95rem; }
 
 /* Abas */
 .tabs {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 25px;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
+    display: flex; gap: 10px; margin-bottom: 25px;
+    border-bottom: 2px solid #eee; padding-bottom: 10px;
 }
-
 .tab-btn {
-    background: none;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    font-weight: 600;
-    color: #7f8c8d;
-    cursor: pointer;
-    border-radius: 6px;
+    background: none; border: none; padding: 10px 20px;
+    font-size: 1rem; font-weight: 600; color: #7f8c8d;
+    cursor: pointer; border-radius: 6px; transition: all 0.2s;
 }
+.tab-btn:hover { background: #f5f5f5; color: #555; }
+.tab-btn.active { background: #e8f4ff; color: #2980b9; }
 
-.tab-btn.active {
-    background: #e8f4ff;
-    color: #2980b9;
+/* Painel de Controles */
+.controls-card {
+    background: white; padding: 20px; border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03); border: 1px solid #eee;
+    margin-bottom: 30px;
 }
+.control-group { display: flex; align-items: center; gap: 15px; }
+.control-group label { font-weight: 600; color: #444; }
+.control-group input, .control-group select {
+    padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem;
+}
+.btn-filter {
+    background: #2980b9; color: white; border: none;
+    padding: 10px 20px; border-radius: 6px; cursor: pointer;
+    font-weight: bold; transition: background 0.2s;
+}
+.btn-filter:hover { background: #3498db; }
 
 /* Cards Estatísticas */
 .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px; margin-bottom: 30px;
 }
-
 .stat-card {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    text-align: center;
+    background: white; padding: 20px; border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center;
+    border: 1px solid #eee;
 }
+.stat-val { font-size: 1.6rem; font-weight: 800; color: #2c3e50; margin: 10px 0; }
+.stat-label { color: #7f8c8d; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.5px; }
 
-.stat-val { font-size: 1.8rem; font-weight: bold; color: #2c3e50; margin: 10px 0; }
-.stat-label { color: #7f8c8d; text-transform: uppercase; font-size: 0.8rem; }
+/* Tabela Top 10 */
+.period-title { color: #2c3e50; margin-bottom: 20px; font-size: 1.3rem; }
+.top10-section h3 { color: #2980b9; margin-bottom: 15px; font-size: 1.1rem; }
 
-/* Tabelas */
 .report-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    width: 100%; border-collapse: collapse; background: white;
+    border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
-
-.report-table th { background: #f8f9fa; padding: 15px; text-align: left; }
-.report-table td { padding: 15px; border-bottom: 1px solid #eee; }
-
-/* Filtros */
-.filter-bar {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-.filter-bar input { padding: 8px; border-radius: 6px; border: 1px solid #ddd; }
-.btn-action { background: #2980b9; color: white; border: none; padding: 8px 15px; border-radius: 6px; cursor: pointer; }
-
-/* Resultados Mensais */
-.report-result .stat-card { margin-bottom: 15px; }
+.report-table th { background: #f8f9fa; padding: 15px; text-align: left; color: #555; }
+.report-table td { padding: 15px; border-bottom: 1px solid #eee; color: #333; }

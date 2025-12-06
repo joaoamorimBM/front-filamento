@@ -11,10 +11,18 @@
     
     <div class="filamentos-container">
         <div class="page-header">
-            <div class="header-text">
-                <h1>📦 Estoque de Filamentos</h1>
-                <p class="subtitle">Gerencie suas bobinas e controle os custos.</p>
+            <div class="header-content">
+                <div class="header-text">
+                    <h1>📦 Estoque de Filamentos</h1>
+                    <p class="subtitle">Gerencie suas bobinas e controle custos.</p>
+                </div>
+
+                <div class="balance-card">
+                    <div class="balance-label">Saldo Disponível</div>
+                    <div id="balance-display" class="balance-value">R$ --,--</div>
+                </div>
             </div>
+
             <button id="btn-novo" class="btn-modern">
                 <span class="plus-icon">+</span> Adicionar Filamento
             </button>
@@ -46,7 +54,9 @@
         </div>
     </div>
 
-</div> <div id="modal-form" class="modal-overlay" style="display: none;">
+</div> 
+
+<div id="modal-form" class="modal-overlay" style="display: none;">
     <div class="modal-content modal-lg">
         <div class="modal-header">
             <h2>Novo Filamento</h2>
@@ -55,7 +65,6 @@
         
         <form id="form-filamento">
             <div class="modal-body">
-                
                 <div class="form-section-title">Informações Básicas</div>
                 <div class="form-grid">
                     <div class="form-group full-width">
@@ -84,11 +93,9 @@
                 <div class="form-section-title">Cor do Material</div>
                 <div class="color-picker-section">
                     <input type="hidden" id="selected-color-hex" value="#000000">
-                    
                     <div id="color-trigger" class="color-preview-large" style="background-color: #000000;">
                         <span class="edit-icon">✎</span>
                     </div>
-                    
                     <div class="color-info">
                         <span id="color-label-text">Preto (#000000)</span>
                         <small>Clique na bolinha para alterar</small>
@@ -106,12 +113,7 @@
                             <div class="swatch" style="background: #FFA500;" data-color="#FFA500" title="Laranja"></div>
                             <div class="swatch" style="background: #800080;" data-color="#800080" title="Roxo"></div>
                             <div class="swatch" style="background: #FFC0CB;" data-color="#FFC0CB" title="Rosa"></div>
-                            <div class="swatch" style="background: #A52A2A;" data-color="#A52A2A" title="Marrom"></div>
-                            <div class="swatch" style="background: #00FFFF;" data-color="#00FFFF" title="Ciano"></div>
-                            
-                            <div class="swatch custom-swatch" id="btn-custom-color" title="Roda de Cores">
-                                🌈
-                            </div>
+                            <div class="swatch custom-swatch" id="btn-custom-color" title="Roda de Cores">🌈</div>
                         </div>
                         <input type="color" id="native-color-picker">
                     </div>
@@ -128,16 +130,15 @@
                         <input type="number" id="f-preco" step="0.01" placeholder="0.00" required>
                     </div>
                 </div>
-
             </div>
 
             <div class="modal-footer">
                 <button type="button" class="btn-cancel close-modal-btn">Cancelar</button>
-                <button type="submit" class="btn-save">Salvar Filamento</button>
+                <button type="submit" class="btn-save">Comprar e Adicionar</button>
             </div>
         </form>
     </div>
 </div>
 
-<script src="/js/filamentos.js"></script>
+<script src="/js/filamentos.js?v=5"></script>
 {% endblock %}
